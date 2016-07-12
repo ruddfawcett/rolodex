@@ -1,6 +1,6 @@
 'use strict';
 
-const people = require('./people');
+const members = require('./members');
 const events = require('./events');
 
 const mongoose = require('mongoose');
@@ -12,5 +12,5 @@ module.exports = function() {
   mongoose.Promise = global.Promise;
 
   app.configure(events);
-  app.configure(people);
+  app.configure(members);
 };

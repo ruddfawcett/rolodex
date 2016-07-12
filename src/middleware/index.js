@@ -3,6 +3,7 @@
 const handler = require('feathers-errors/handler');
 const notFound = require('./not-found-handler');
 const logger = require('./logger');
+const sass = require('node-sass-middleware');
 
 module.exports = function() {
   // Add your custom middleware here. Remember, that

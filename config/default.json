@@ -1,6 +1,7 @@
 {
   "host": "localhost",
   "port": 3030,
+  "password": "CS4ALL",
   "mongodb": "mongodb://localhost:27017/meetup",
   "public": "../public/",
   "MEETUP_API_KEY": "69940413b4c713f2a45328635e636"

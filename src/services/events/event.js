@@ -6,11 +6,14 @@ const Schema = mongoose.Schema;
 const EventSchema = new Schema({
   name: { type: String, required: true },
   date: { type: Date, required: true },
-  meetup_id: { type: String, required: true },
+  meetup_id: { type: Number, required: true },
+  venue: {
+    // TODO fill out
+  },
   attendees: [{
     person: { type: Schema.Types.ObjectId, ref: 'Person' },
     checked_in: { type: Boolean, required: true, default: false }
-  ],
+  }],
   created_at: { type: Date, 'default': Date.now },
   updated_at: { type: Date, 'default': Date.now }
 });
