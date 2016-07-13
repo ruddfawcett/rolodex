@@ -27,18 +27,11 @@ app.use(
     dest: path.join(__dirname, 'public/assets/styles/'),
     debug: false,
     force: true,
-    outputStyle: 'compressed'
+    outputStyle: 'compressed',
+    prefix: '/static/assets/styles/'
   })
 );
 
-app.use('/', feathers.static(path.join(__dirname, 'public')));
-
-app.get('/', (req, res) =>
-  res.render('index')
-);
-
-app.get('/search', (req, res) =>
-  res.render('search')
-);
+app.use('/static', feathers.static(path.join(__dirname, 'public')));
 
 module.exports = app;

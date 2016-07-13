@@ -1,0 +1,13 @@
+extends layout
+
+block vars
+  - var title='CSNYC Meetup Search'
+
+block styles
+  link(rel='stylesheet', href='/static/assets/styles/login.css')
+
+block content
+  div
+    include ./includes/logo-heading.jade
+      h2 Meetup Check In
+      input(class='login', type='password', placeholder='Code')

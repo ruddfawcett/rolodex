@@ -13,7 +13,7 @@ module.exports = function() {
   };
 
   // Initialize our service with any options it requires
-  app.use('/members', service(options));
+  app.use('/api/members', service(options));
 
   // // Get our initialize service to that we can bind hooks
   // const membersService = app.service('/members');

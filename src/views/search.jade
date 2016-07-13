@@ -4,13 +4,13 @@ block vars
   - var title='CSNYC Meetup Search'
 
 block styles
-  //- Dummy call to get node-sass-middleware working.
-  link(rel='stylesheet', href='search.css')
-  //- Actual path to CSS.
-  link(rel='stylesheet', href='assets/styles/search.css')
+  link(rel='stylesheet', href='/static/assets/styles/search.css')
 
 block content
   div
     include ./includes/logo-heading.jade
-      h2.meetup #{meetup.name}
+      h2.meetup Computer Science &amp; the Arts
       input(class='search', type='text', placeholder='First Last')
+
+block scripts
+  script(type='text/javascript', src='/static/js/search.js')

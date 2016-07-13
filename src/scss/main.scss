@@ -8,13 +8,52 @@
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+}
+
 body {
-  background-color: white;
+  background-color: #F8F8FE;
   font-family: 'Roboto', 'PT Sans', sans-serif;
 }
 
 header {
+  overflow: auto;
+  border-bottom: 1px solid lighten($gray-color, 30%);
+  padding: 20px;
+  background-color: white;
 
+  .logo {
+    overflow: auto;
+
+    img {
+      width: 150px;
+      display: block;
+    }
+
+    h2 {
+      color: $gray-color;
+      font-weight: 300;
+      text-transform: uppercase;
+
+    }
+
+    &.right {
+      float: right;
+
+      img {
+        float: right;
+      }
+    }
+  }
+}
+
+main {
+  margin-top: 30px;
 }
 
 main.logo {
@@ -29,22 +68,21 @@ main.logo {
 
   h2 {
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
     text-transform: uppercase;
     margin-top: 5px;
     color: $gray-color;
   }
 }
 
+$input-size: 50px;
 
 input[type='text'], input[type='password'] {
-  $input-size: 50px;
   outline: none !important;
   border: 0;
   -webkit-appearance: none;
   font-weight: 300;
   padding: 5px 0;
-  border-radius: 5px;
   font-size: 25px;
   margin-top: 30px;
   width: 100%;

@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const MeetupSchema = new Schema({
+const EventSchema = new Schema({
   name: { type: String, required: true },
   date: { type: Date, required: true },
   meetup_id: { type: Number, required: true },
@@ -11,18 +11,18 @@ const MeetupSchema = new Schema({
     // TODO fill out
   },
   attendees: [{
-    person: { type: Schema.Types.ObjectId, ref: 'Person' },
+    person: { type: Schema.Types.ObjectId, ref: 'Member' },
     checked_in: { type: Boolean, required: true, default: false }
   }],
   created_at: { type: Date, 'default': Date.now },
   updated_at: { type: Date, 'default': Date.now }
 });
 
-MeetupSchema.pre('save', function(next) {
+EventSchema.pre('save', function(next) {
   this.updated_at = new Date();
   next();
 });
 
-const MeetupModel = mongoose.model('Meetup', MeetupSchema);
+const EventModel = mongoose.model('Event', EventSchema);
 
-module.exports = MeetupModel;
+module.exports = EventModel;

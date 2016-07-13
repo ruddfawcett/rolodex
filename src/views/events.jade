@@ -1,0 +1,24 @@
+extends layout
+
+block vars
+  - var title='CSNYC Events'
+
+block styles
+  link(rel='stylesheet', href='/static/assets/styles/events.css')
+
+block content
+  div
+    include ./includes/header.jade
+    main
+      .events
+        ul
+          each event in events
+            li
+              a(href='/events/#{event.id}/#{event.name.replace(" ", "-")}') 
+                h1 #{event.name}
+              ul.stats
+                li Waitlist: #{event.waitlist_count}
+                li Maybe: #{event.maybe_rsvp_count}
+                li Coming: #{event.yes_rsvp_count}
+
+block scripts

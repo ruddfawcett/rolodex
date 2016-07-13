@@ -1,11 +1,11 @@
 const service = require('feathers-mongoose');
-const Meetup = require('../models/meetup');
+const Event = require('../models/event');
 
 module.exports = function() {
   const app = this;
 
   const options = {
-    Model: Meetup,
+    Model: Event,
     paginate: {
       default: 5,
       max: 25
@@ -13,14 +13,14 @@ module.exports = function() {
   };
 
   // Initialize our service with any options it requires
-  app.use('/meetups', service(options));
+  app.use('/api/events', service(options));
 
   // // Get our initialize service to that we can bind hooks
-  // const meetupsService = app.service('/meetups');
+  // const eventsService = app.service('/meetups');
   //
   // // Set up our before hooks
-  // meetupsService.before(hooks.before);
+  // eventsService.before(hooks.before);
   //
   // // Set up our after hooks
-  // meetupsService.after(hooks.after);
+  // eventsService.after(hooks.after);
 };

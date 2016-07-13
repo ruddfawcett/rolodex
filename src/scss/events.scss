@@ -1,0 +1,45 @@
+@import 'main';
+
+main {
+}
+
+.events {
+  margin: 0 auto;
+  width: 700px;
+
+  ul {
+    li {
+      list-style-type: none;
+      padding: 20px 20px;
+      border-bottom: 1px dashed $light-gray;
+
+      &:nth-child(even) {
+        background-color: darken(#F8F8FE, 1%);
+      }
+
+      h1 {
+        font-size: 20px;
+        text-transform: capitalize;
+        color: $csnyc-pink;
+        font-weight: 400;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      ul li {
+        display: inline-block;
+        padding: 0;
+        margin-right: 30px;
+        border: none;
+        color: gray;
+        font-weight: 200;
+
+        &:nth-child(even) {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}

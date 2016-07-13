@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 
 // TODO Edit profile if you've already attended a meetup.
 
-// REVIEW how much are we saving here? Should this just be a shell for meetup?
 const MemberSchema = new Schema({
   name: { type: String, required: true },
   meetup_id: { type: Number, required: true },
@@ -13,18 +12,19 @@ const MemberSchema = new Schema({
   // Only for the first few meetups.
   profile: {
     meetups_attended: { type: Number, required: true, default: 0 },
-    // REVIEW Profession
-    // profession: { type: Schema.Types.ObjectId, ref: 'Profession' },
+    teacher: { type: Boolean, required: true },
+    affiliation: { type: String, required: true},
+    role: { type: String, required: false},
     borough: { type: String, required: true, enum: [
       'MANHATTAN', 'QUEENS', 'STATENISLAND', 'THEBRONX', 'BROOKLYN', 'OUTSIDE',
     ]},
-    // if you're a teacher
-    grade_level: { type: String, required: true, enum: [
+    grade_level: { type: String, required: false, enum: [
       'ELEMENTARY', 'MIDDLE', 'HIGH', 'POSTHIGH'
     ]},
     // REVIEW Subjects taught
-    // subjects_taught: [String],
-    // English Language Arts, Math, Science, History/Social Studies, Art/Music, OTHER
+    subjects_taught: { type:[String], enum:[
+      'TEST'
+    ]}
   },
   created_at: { type: Date, 'default': Date.now },
   updated_at: { type: Date, 'default': Date.now }

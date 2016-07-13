@@ -2,6 +2,10 @@
 
 $default-radius: 5px;
 
+body {
+  background-color: white;
+}
+
 main.logo {
   .search {
     background: white no-repeat url('../images/search.svg') center left;

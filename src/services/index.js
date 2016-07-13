@@ -1,5 +1,5 @@
 const members = require('./members');
-const meetups = require('./meetups');
+const events = require('./events');
 
 const mongoose = require('mongoose');
 
@@ -9,6 +9,6 @@ module.exports = function() {
   mongoose.connect(app.get('mongodb'));
   mongoose.Promise = global.Promise;
 
-  app.configure(meetups);
+  app.configure(events);
   app.configure(members);
 };
