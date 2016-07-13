@@ -9,25 +9,25 @@ const sass = require('node-sass-middleware');
 
 const app = feathers();
 
-app.configure(configuration(__dirname));
+app.configure(configuration(__dirname))
+   .configure(rest())
+   .configure(socketio());
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views'))
+   .set('view engine', 'jade');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.configure(rest());
-app.configure(socketio());
-app.use(handler());
-
-app.use(
-  sass({
-    src: path.join(__dirname, 'sass'),
-    dest: path.join(__dirname, 'public/assets/styles'),
-    debug: true,
-    outputStyle: 'compressed'
-  })
-);
+app.use(bodyParser.json())
+   .use(bodyParser.urlencoded({ extended: true }))
+   .use(handler())
+   .use(
+    sass({
+      src: path.join(__dirname, 'sass/'),
+      dest: path.join(__dirname, 'public/assets/styles/'),
+      debug: true,
+      outputStyle: 'compressed',
+      prefix: 'assets/styles/'
+    })
+  );
 
 app.use(feathers.static(path.join(__dirname, 'public')));
 
@@ -39,5 +39,5 @@ app.get('/', (req, res) =>
 );
 
 server.on('listening', () =>
-  console.log(`Feathers application started on ${app.get('host')}:${port}`)
+  console.log(`CSNYC Meetup is live on ${app.get('host')}:${port}.`)
 );
