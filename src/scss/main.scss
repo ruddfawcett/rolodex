@@ -1,7 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900);
 
-@import 'colors';
-@import '_mixins';
+$csnyc-pink: #E90B8B;
+$csnyc-orange: #F69420;
+$csnyc-green: #8DC540;
+$csnyc-blue: #0F76BB;
+
+$gray-color: #9B9B9B;
+
+$off-white: ligten(#f0f0f0, 20%);
+$light-gray: lighten($gray-color, 10%);
+$lightest-gray: lighten(#D5D5D5, 14%);
 
 * {
   padding: 0;
@@ -19,6 +27,10 @@ h1,h2,h3,h4,h5,h6 {
 body {
   background-color: #F8F8FE;
   font-family: 'Roboto', 'PT Sans', sans-serif;
+}
+
+@mixin border-all() {
+  border: 1px solid #D5D5D5;
 }
 
 header {
