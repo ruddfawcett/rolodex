@@ -21,7 +21,7 @@ app.use(bodyParser.json())
    .use(handler())
    .use(
     sass({
-      src: path.join(__dirname, 'sass/'),
+      src: path.join(__dirname, 'scss/'),
       dest: path.join(__dirname, 'public/assets/styles/'),
       debug: true,
       outputStyle: 'compressed',
