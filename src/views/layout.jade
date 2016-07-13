@@ -1,14 +1,14 @@
 doctype html5
 html(lang='en')
+  block vars
   head
-    title= title
+    title #{title}
+    block styles
     meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
-    link(rel='stylesheet', href='main.css')
-    block headers
   body
     block content
 
     //- script(src="javascripts/jquery.min.js")
     block scripts
-    script .
-      // Google Analytics
+    script
+    //- Google Analytics

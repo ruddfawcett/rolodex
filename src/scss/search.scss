@@ -1,0 +1,107 @@
+@import 'main';
+
+$default-radius: 5px;
+
+input {
+  outline: none !important;
+  border: 0;
+  -webkit-appearance: none;
+  font-weight: 300;
+  padding: 5px 0;
+  border-radius: $default-radius;
+  font-size: 25px;
+}
+
+body {
+  background-color: white;
+  font-family: 'Roboto', 'PT Sans', sans-serif;
+}
+
+main {
+  h2 {
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 5px;
+    color: $gray-color;
+  }
+
+  $input-size: 50px;
+
+  .search {
+    background: white no-repeat url('../images/search.svg') center left;
+    background-position: ($input-size/2) - 10;
+    background-size: $input-size/2;
+    margin-top: 30px;
+    width: 100%;
+    height: $input-size;
+    padding-left: $input-size;
+    color: #333;
+    @include border-all();
+    background-color: $off-white;
+  }
+
+  .results {
+    list-style: none;
+    background-color: $off-white;
+
+    $result-height: 70px;
+    $gap: ($result-height - ($result-height/1.3))/2;
+
+    li {
+      height: $result-height;
+      padding: $gap;
+      @include border-all();
+
+      &:first-child {
+        margin-top: -1;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: $default-radius;
+        border-bottom-right-radius: $default-radius;
+      }
+
+      & + li {
+        border-top: none;
+      }
+
+      img {
+        float: left;
+        height: $result-height/1.3;
+        margin-top: $gap;
+        border-radius: 100%;
+        @include border-all();
+      }
+
+      .text {
+        margin-left: 20px;
+        float: left;
+
+        h3 {
+          margin-top: 10px;
+        }
+
+        .badge {
+          margin-top: 2px;
+          text-transform: uppercase;
+          color: white;
+          font-weight: 500;
+          letter-spacing: 1px;
+          padding: 3px 9px;
+          border-radius: 6px;
+          font-size: 12px;
+          display: inline-block;
+
+          &.veteran {
+            background-color: $csnyc-green;
+          }
+
+          &.none {
+            background-color: $light-gray;
+          }
+        }
+      }
+    }
+  }
+}

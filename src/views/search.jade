@@ -1,0 +1,17 @@
+extends layout
+
+block vars
+  - var title='CSNYC Meetup Search'
+
+block styles
+  //- Dummy call to get node-sass-middleware working.
+  link(rel='stylesheet', href='search.css')
+  //- Actual path to CSS.
+  link(rel='stylesheet', href='assets/styles/search.css')
+
+block content
+  div
+    main
+      img(class='logo', src='assets/images/logo.svg')
+      h2.meetup #{meetup.name}
+      input(class='search', type='text', placeholder='First Last')
