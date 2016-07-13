@@ -1,5 +1,5 @@
 const service = require('feathers-mongoose');
-const EvMeetupent = require('../models/meetup');
+const Meetup = require('../models/meetup');
 
 module.exports = function() {
   const app = this;

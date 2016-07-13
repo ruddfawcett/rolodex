@@ -11,7 +11,6 @@ block styles
 
 block content
   div
-    main
-      img(class='logo', src='assets/images/logo.svg')
+    include ./includes/logo-heading.jade
       h2.meetup #{meetup.name}
       input(class='search', type='text', placeholder='First Last')

@@ -8,11 +8,16 @@
   margin: 0;
 }
 
+body {
+  background-color: white;
+  font-family: 'Roboto', 'PT Sans', sans-serif;
+}
+
 header {
 
 }
 
-main {
+main.logo {
   * {
     margin: 0 auto;
     display: block;
@@ -21,6 +26,29 @@ main {
   width: 500px;
   margin: 0 auto;
   margin-top: 100px;
+
+  h2 {
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 5px;
+    color: $gray-color;
+  }
+}
+
+
+input[type='text'], input[type='password'] {
+  $input-size: 50px;
+  outline: none !important;
+  border: 0;
+  -webkit-appearance: none;
+  font-weight: 300;
+  padding: 5px 0;
+  border-radius: 5px;
+  font-size: 25px;
+  margin-top: 30px;
+  width: 100%;
+  height: $input-size;
 }
 
 footer {

@@ -5,13 +5,12 @@ block vars
 
 block styles
   //- Dummy call to get node-sass-middleware working.
-  link(rel='stylesheet', href='search.css')
+  link(rel='stylesheet', href='login.css')
   //- Actual path to CSS.
-  link(rel='stylesheet', href='assets/styles/main.css')
+  link(rel='stylesheet', href='assets/styles/login.css')
 
 block content
   div
-    main
-      img(class='logo', src='assets/images/logo.svg')
-      h2.meetup #{event.name}
-      input(class='search', type='text', placeholder='First Last')
+    include ./includes/logo-heading.jade
+      h2 Check In
+      input(class='login', type='password', placeholder='Password')

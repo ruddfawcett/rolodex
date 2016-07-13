@@ -2,39 +2,11 @@
 
 $default-radius: 5px;
 
-input {
-  outline: none !important;
-  border: 0;
-  -webkit-appearance: none;
-  font-weight: 300;
-  padding: 5px 0;
-  border-radius: $default-radius;
-  font-size: 25px;
-}
-
-body {
-  background-color: white;
-  font-family: 'Roboto', 'PT Sans', sans-serif;
-}
-
-main {
-  h2 {
-    text-align: center;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-top: 5px;
-    color: $gray-color;
-  }
-
-  $input-size: 50px;
-
+main.logo {
   .search {
     background: white no-repeat url('../images/search.svg') center left;
     background-position: ($input-size/2) - 10;
     background-size: $input-size/2;
-    margin-top: 30px;
-    width: 100%;
-    height: $input-size;
     padding-left: $input-size;
     color: #333;
     @include border-all();
