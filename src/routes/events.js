@@ -18,8 +18,6 @@ router.get('/', function(req, res) {
       res.render('error');
     }
 
-    console.log(response['results'][0].group);
-
     res.render('events', {
       events: response.results
     });
@@ -45,7 +43,7 @@ router.get('/:event_id/:event_name', function(req, res) {
   //member =>
   //{ member_id: 203722745, name: 'Tawanta Youngblood' }
 
-      res.send();
+    res.render('search');
 
     member_machine(response['results'], function(members) {
 // find in member masterlist

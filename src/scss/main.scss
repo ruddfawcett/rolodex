@@ -1,57 +1,34 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900);
+@import 'resets';
 
 $csnyc-pink: #E90B8B;
 $csnyc-orange: #F69420;
 $csnyc-green: #8DC540;
 $csnyc-blue: #0F76BB;
 
-$gray-color: #9B9B9B;
-
-$off-white: ligten(#f0f0f0, 20%);
-$light-gray: lighten($gray-color, 10%);
-$lightest-gray: lighten(#D5D5D5, 14%);
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-h1,h2,h3,h4,h5,h6 {
-  font-weight: normal;
-}
-
-body {
-  background-color: #F8F8FE;
-  font-family: 'Roboto', 'PT Sans', sans-serif;
-}
-
-@mixin border-all() {
-  border: 1px solid #D5D5D5;
-}
-
 header {
   overflow: auto;
-  border-bottom: 1px solid lighten($gray-color, 30%);
-  padding: 20px;
-  background-color: white;
+  padding: 10px 20px;
+  // background: rgba(35,31,32,0.8);
+  background-color: #FFF;
+  border-bottom: 1px solid #DEDEDE;
+  color: #333;
+  @include box-shadow();
 
   .logo {
     overflow: auto;
 
     img {
-      width: 150px;
+      width: 120px;
       display: block;
     }
 
     h2 {
-      color: $gray-color;
-      font-weight: 300;
+      font-weight: 500;
       text-transform: uppercase;
-
+      text-shadow: none;
+      font-size: 15px;
+      letter-spacing: 0.5px;
     }
 
     &.right {
@@ -74,20 +51,23 @@ main.logo {
     display: block;
   }
 
-  width: 500px;
+  max-width: 50%;
+  padding: 80px 20px;
   margin: 0 auto;
   margin-top: 100px;
+  background: rgba(35,31,32,0.5);
+  border-radius: 5px;
 
   h2 {
     text-align: center;
-    font-weight: 300;
+    font-weight: 500;
     text-transform: uppercase;
     margin-top: 5px;
-    color: $gray-color;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 1.5px;
   }
 }
-
-$input-size: 50px;
 
 input[type='text'], input[type='password'] {
   outline: none !important;
@@ -97,8 +77,9 @@ input[type='text'], input[type='password'] {
   padding: 5px 0;
   font-size: 25px;
   margin-top: 30px;
-  width: 100%;
-  height: $input-size;
+  width: 80%;
+  background-color: transparent;
+  height: 50px;
 }
 
 footer {

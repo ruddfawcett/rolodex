@@ -14,7 +14,7 @@ block content
         ul
           each event in events
             li
-              a(data-event_id='#{event.id}', data-event_name='#{event.name}') 
+              a(data-event_id='#{event.id}', data-event_name='#{event.name}', data-event_date='#{event.time}') 
                 h1 #{event.name}
               ul.stats
                 li Waitlist: #{event.waitlist_count}

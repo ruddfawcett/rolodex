@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const MemberSchema = new Schema({
   name: { type: String, required: true },
-  meetup_id: { type: Number, required: true, unique: true },
+  meetup_id: { type: String, required: true, unique: true },
   // TODO Ask if they have been to a meetup if this is 0.
   // Only for the first few meetups.
   profile: {
