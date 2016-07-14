@@ -5,6 +5,9 @@ const meetup = require('meetup-api')({
   key: app.get('MEETUP_API_KEY')
 });
 
+const members = app.service('/api/members');
+const events = app.service('/api/events');
+
 router.get('/', function(req, res) {
   var parameters = {
     group_urlname: app.get('MEETUP_GROUP_URL')
@@ -14,6 +17,8 @@ router.get('/', function(req, res) {
     if (error) {
       res.render('error');
     }
+
+    console.log(response['results'][0].group);
 
     res.render('events', {
       events: response.results
@@ -31,16 +36,38 @@ router.get('/:event_id/:event_name', function(req, res) {
       res.render('error');
     }
 
-    member_machine(response, function(members) {
+      // member_photo =>
+// { highres_link: 'http://photos1.meetupstatic.com/photos/member/4/2/6/f/highres_255857007.jpeg',
+//   photo_id: 255857007,
+//   photo_link: 'http://photos1.meetupstatic.com/photos/member/4/2/6/f/member_255857007.jpeg',
+//   thumb_link: 'http://photos1.meetupstatic.com/photos/member/4/2/6/f/thumb_255857007.jpeg' }
+
+  //member =>
+  //{ member_id: 203722745, name: 'Tawanta Youngblood' }
+
+      res.send();
+
+    member_machine(response['results'], function(members) {
+// find in member masterlist
+// if not there, add it shallowly
+// then add to the attendees with a ref
 
     });
-
-    console.log(response);
   });
 });
 
-function member_machine(results, members) {
-  var members = [];
+function member_machine(results, callback) {
+  var potential = results;
+
+  // members.create({
+  //
+  // })
+
+  // members.get(1).then(function(member) {
+  //   console.log(member.name);
+  // });
+
+  callback(members);
 }
 
 module.exports = router;

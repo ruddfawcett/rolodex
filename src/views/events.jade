@@ -14,7 +14,7 @@ block content
         ul
           each event in events
             li
-              a(href='/events/#{event.id}/#{event.name.replace(" ", "-")}') 
+              a(data-event_id='#{event.id}', data-event_name='#{event.name}') 
                 h1 #{event.name}
               ul.stats
                 li Waitlist: #{event.waitlist_count}
@@ -22,3 +22,6 @@ block content
                 li Coming: #{event.yes_rsvp_count}
 
 block scripts
+  script(type='text/javascript', src='//cdn.socket.io/socket.io-1.4.5.js')
+  script(type='text/javascript', src='//cdn.rawgit.com/feathersjs/feathers-client/v1.1.0/dist/feathers.js')
+  script(type='text/javascript', src='/static/js/events.js')

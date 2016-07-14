@@ -11,16 +11,12 @@ const services = require('./services');
 const app = feathers();
 
 app.configure(configuration(__dirname));
-app.configure(rest());
-app.configure(socketio());
-app.configure(services);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(handler());
 app.use(
   sass({
     src: path.join(__dirname, 'scss/'),
@@ -32,6 +28,10 @@ app.use(
   })
 );
 
+app.configure(rest());
+app.configure(socketio());
+app.configure(services);
 app.use('/static', feathers.static(path.join(__dirname, 'public')));
+app.use(handler());
 
 module.exports = app;
