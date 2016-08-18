@@ -6,20 +6,21 @@ const Schema = mongoose.Schema;
 const MemberSchema = new Schema({
   name: { type: String, required: true },
   meetup_id: { type: String, required: true, unique: true },
+  avatar: { type: String, required: true },
   // TODO Ask if they have been to a meetup if this is 0.
   // Only for the first few meetups.
+  complete_profile: { type: Boolean, required: false, default: false },
   profile: {
-    meetups_attended: { type: Number, required: true, default: 0 },
-    teacher: { type: Boolean, required: true },
-    affiliation: { type: String, required: true},
+    meetups_attended: { type: Number, required: false, default: 0 },
+    teacher: { type: Boolean, required: false },
+    affiliation: { type: String, required: false},
     role: { type: String, required: false},
-    borough: { type: String, required: true, enum: [
+    borough: { type: String, required: false, enum: [
       'MANHATTAN', 'QUEENS', 'STATENISLAND', 'THEBRONX', 'BROOKLYN', 'OUTSIDE',
     ]},
     grade_level: { type: String, required: false, enum: [
       'ELEMENTARY', 'MIDDLE', 'HIGH', 'POSTHIGH'
     ]},
-    // REVIEW Subjects taught
     subjects_taught: { type:[String], enum:[
       'TEST'
     ]}

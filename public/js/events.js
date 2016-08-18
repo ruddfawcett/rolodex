@@ -2,10 +2,6 @@ var socket = io('http://localhost:8080');
 var app = feathers().configure(feathers.socketio(socket));
 var events = app.service('/api/events');
 
-events.on('created', function(event) {
-  console.log('event created', event);
-});
-
 $('a').on('click', function() {
   var event_id = $(this).data('event_id');
   var event_name = $(this).data('event_name');
@@ -17,23 +13,14 @@ $('a').on('click', function() {
     date: new Date(event_date)
   };
 
-  events.find({meetup_id: event_id}, function(error, result) {
-    if (error) {
-      console.log(error);
-    }
-
-    if (result.data.length == 0) {
-      events.create(Event, function(error, result) {
-        if (error) {
-          console.log(error);
-          return;
-        }
-        console.log(result);
-        return;
-      });
+  events.find({query:{ meetup_id: event_id }}).then(event => {
+    if (!event) {
+      return events.create(Event);
     }
     else {
       window.location = `events/${event_id}/${event_name.replace(' ', '-')}`;
     }
-  })
+  }).catch(error => {
+    console.log(error);
+  });
 });

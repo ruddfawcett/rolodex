@@ -1,0 +1,28 @@
+extends ./includes/layout.jade
+
+block vars
+  - var path='Events'
+
+block content
+  main
+    .events
+      - var first = true
+      if (!events.length)
+        section.event.latest
+          h4 Uh Oh
+          h1 No upcoming events.
+        h1 No upcoming meetups
+      each event in events
+        if first
+          section.event.latest(data-event_id='#{event.id}', data-event_name='#{event.name}', data-event_date='#{event.time}')
+            .container
+              h4 Next Event 
+              h1 #{event.name}
+            - first = false
+        else
+          section.event
+            .container(data-event_id='#{event.id}', data-event_name='#{event.name}', data-event_date='#{event.time}') 
+              h1 #{event.name}
+
+block scripts
+  script(type='text/javascript', src='/static/js/events.js')

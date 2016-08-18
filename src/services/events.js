@@ -16,7 +16,7 @@ module.exports = function() {
   app.use('/api/events', service(options));
 
   // // Get our initialize service to that we can bind hooks
-  // const eventsService = app.service('/meetups');
+  // const eventsService = app.service('/events');
   //
   // // Set up our before hooks
   // eventsService.before(hooks.before);

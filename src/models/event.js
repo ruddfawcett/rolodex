@@ -5,11 +5,9 @@ const EventSchema = new Schema({
   name: { type: String, required: true },
   date: { type: Date, required: true },
   meetup_id: { type: String, required: true },
-  // TODO venue: {},
   attendees: [{
     member: { type: Schema.Types.ObjectId, ref: 'Member' },
-    checked_in: { type: Boolean, required: false, default: false },
-    photo: { type: String, required: false }
+    checked_in: { type: Boolean, required: false, default: false }
   }],
   created_at: { type: Date, 'default': Date.now },
   updated_at: { type: Date, 'default': Date.now }

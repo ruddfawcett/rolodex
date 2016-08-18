@@ -1,5 +1,5 @@
 {
-  "name": "meetup",
+  "name": "rolodex",
   "description": "",
   "version": "0.1.0",
   "homepage": "",
@@ -16,6 +16,7 @@
     "start": "supervisor node src/"
   },
   "dependencies": {
+    "async": "^2.0.1",
     "body-parser": "^1.15.2",
     "feathers": "^2.0.1",
     "feathers-configuration": "^0.3.0",

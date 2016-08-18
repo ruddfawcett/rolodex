@@ -1,9 +1,9 @@
 {
   "host": "localhost",
   "port": 8080,
-  "passcode": "test",
+  "MEETUP_PASSCODE": "test",
   "mongodb": "mongodb://localhost:27017/meetup",
   "public": "../public/",
   "MEETUP_API_KEY": "69940413b4c713f2a45328635e636",
-  "MEETUP_GROUP_URL": "Meetup-API-Testing"
+  "MEETUP_GROUP_URL": "hackerhours"
 }

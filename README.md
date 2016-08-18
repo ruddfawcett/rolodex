@@ -1,3 +1,1 @@
-# csnyc-meetup
-
-Track meetup attendees.
+![](banner.png)

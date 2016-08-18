@@ -7,20 +7,22 @@ const handler = require('feathers-errors/handler');
 const configuration = require('feathers-configuration');
 const sass = require('node-sass-middleware');
 const services = require('./services');
+const hooks = require('feathers-hooks');
 
 const app = feathers();
 
-app.configure(configuration(__dirname));
+app.configure(configuration(path.join(__dirname, '..')));
+app.configure(hooks());
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   sass({
-    src: path.join(__dirname, 'scss/'),
-    dest: path.join(__dirname, 'public/assets/styles/'),
+    src: path.join(__dirname, '../scss/'),
+    dest: path.join(__dirname, '../public/assets/styles/'),
     debug: false,
     force: true,
     outputStyle: 'compressed',
@@ -31,7 +33,7 @@ app.use(
 app.configure(rest());
 app.configure(socketio());
 app.configure(services);
-app.use('/static', feathers.static(path.join(__dirname, 'public')));
+app.use('/static', feathers.static(path.join(__dirname, '../public')));
 app.use(handler());
 
 module.exports = app;
