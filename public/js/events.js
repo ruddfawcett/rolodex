@@ -2,7 +2,7 @@ var socket = io('http://localhost:8080');
 var app = feathers().configure(feathers.socketio(socket));
 var events = app.service('/api/events');
 
-$('a').on('click', function() {
+$('.event').on('click', function() {
   var event_id = $(this).data('event_id');
   var event_name = $(this).data('event_name');
   var event_date = parseInt($(this).data('event_date'));
@@ -18,7 +18,7 @@ $('a').on('click', function() {
       return events.create(Event);
     }
     else {
-      window.location = `events/${event_id}/${event_name.replace(' ', '-')}`;
+      window.location = `events/${event_id}`; // /${event_name.replace(/ /g, '-')}`;
     }
   }).catch(error => {
     console.log(error);

@@ -3,7 +3,7 @@ const router = require('feathers').Router();
 
 const members = app.service('/api/members');
 
-router.get('/:member_id/:member_name', function(req, res) {
+router.get('/:member_id/:member_name', (req, res) => {
 
 });
 

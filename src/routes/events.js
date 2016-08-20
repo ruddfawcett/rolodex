@@ -8,12 +8,12 @@ const async = require('async');
 const members = app.service('/api/members');
 const events = app.service('/api/events');
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   var parameters = {
     group_urlname: app.get('MEETUP_GROUP_URL')
   }
 
-  meetup.getEvents(parameters, function(error, response) {
+  meetup.getEvents(parameters, (error, response) => {
     if (error) res.render('error');
 
     res.render('events', {
@@ -22,15 +22,15 @@ router.get('/', function(req, res) {
   });
 });
 
-router.get('/:event_id/:event_name', function(req, res) {
+router.get('/:event_id', (req, res) => { // /:event_name
   var parameters = {
     event_id: req.params.event_id
   }
 
-  meetup.getRSVPs(parameters, function(error, response) {
+  meetup.getRSVPs(parameters, (error, response) => {
     if (error) res.render('error');
 
-    async.each(response['results'], function(rsvp) {
+    async.each(response['results'], (rsvp) => {
       var Member = {
         name: rsvp.member.name,
         meetup_id: rsvp.member.member_id

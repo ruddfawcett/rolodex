@@ -1,18 +1,37 @@
-@import 'resets';
-
 $csnyc-pink: #E90B8B;
 $csnyc-orange: #F69420;
 $csnyc-green: #8DC540;
 $csnyc-blue: #0F76BB;
 
 $rolodex-green: #31E981;
+$rolodex-black: #1F222D;
+
+* {
+  padding: 0;
+  margin: 0;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: $rolodex-black;
+  font-family: 'PT Sans', sans-serif;
+  position: relative;
+}
 
 nav {
-  padding: 20px 20px;
+  padding: 15px 20px;
   background-color: #1F222D;
   color: lighten(#6B818C, 20%);
-  box-shadow: 0px 1px 1px 0px rgba(#BBBBBB,0.50);
+  // box-shadow: 0px 1px 1px 0px rgba(#BBBBBB,0.50);
   text-transform: lowercase;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
 
   h3 {
     font-weight: 400;
@@ -23,13 +42,26 @@ nav {
   }
 }
 
+main {
+  margin-top: 50px;
+}
+
 .events {
+  background-color: #FAFAFA;
+  padding-bottom: 50px;
+
   section.event {
     margin-bottom: 20px;
     color: white;
 
     &.latest {
-      background-color: $rolodex-green;
+      background-color: $rolodex-black;
+      cursor: pointer;
+      margin-bottom: 40px;
+
+      h1 {
+        color: $rolodex-green;
+      }
 
       .container {
         border: none;
@@ -43,6 +75,8 @@ nav {
 
         h1 {
           font-size: 2em;
+          font-weight: 600;
+          margin-bottom: 0;
         }
       }
     }
@@ -52,16 +86,26 @@ nav {
       max-width: 60%;
       border: 1px solid #DCDCDC;
       border-radius: 3px;
-      padding: 10px 10px;
+      padding: 15px 20px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
       background-color: white;
       color: #212121;
+      cursor: pointer;
 
       h4 {
         text-transform: uppercase;
       }
 
       h1 {
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #818181;
       }
     }
   }
@@ -69,7 +113,6 @@ nav {
 
 footer {
   text-align: right;
-  margin-top: 50px;
   font-weight: 600;
   background-color: #282C37;
   color: lighten(#6B818C, 20%);
