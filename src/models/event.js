@@ -5,10 +5,15 @@ const EventSchema = new Schema({
   name: { type: String, required: true },
   date: { type: Date, required: true },
   meetup_id: { type: String, required: true },
-  attendees: [{
-    member: { type: Schema.Types.ObjectId, ref: 'Member' },
-    checked_in: { type: Boolean, required: false, default: false }
-  }],
+  attendees: {
+    yes: [{ type: Schema.Types.ObjectId, ref: 'Member' }],
+    no: [{ type: Schema.Types.ObjectId, ref: 'Member' }],
+    waitlist: [{ type: Schema.Types.ObjectId, ref: 'Member' }]
+  },
+  // {
+  //   member: { type: Schema.Types.ObjectId, ref: 'Member' },
+  //   checked_in: { type: Boolean, default: false }
+  // }],
   created_at: { type: Date, 'default': Date.now },
   updated_at: { type: Date, 'default': Date.now }
 });

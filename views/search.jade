@@ -4,7 +4,8 @@ block vars
   - var path='Search'
 
 block content
-  main
+  main.search
+    hi #{JSON.stringify(event)}
 
 block scripts
   script(type='text/javascript', src='/static/js/search.js')

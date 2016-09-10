@@ -1,9 +1,10 @@
 const app = require('../app');
 const router = require('feathers').Router();
+const async = require('async');
 const meetup = require('meetup-api')({
   key: app.get('MEETUP_API_KEY')
 });
-const async = require('async');
+const importer = require('../modules/import');
 
 const members = app.service('/api/members');
 const events = app.service('/api/events');
@@ -22,29 +23,15 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:event_id', (req, res) => { // /:event_name
-  var parameters = {
-    event_id: req.params.event_id
-  }
 
-  meetup.getRSVPs(parameters, (error, response) => {
-    if (error) res.render('error');
-
-    async.each(response['results'], (rsvp) => {
-      var Member = {
-        name: rsvp.member.name,
-        meetup_id: rsvp.member.member_id
-      };
-
-      if (typeof rsvp.member_photo !== 'undefined') {
-        Member.avatar = rsvp.member_photo.photo_link;
-      }
-
-      return members.create(Member);
+router.get('/:event_id', (req, res) => {
+  importer.findEvent(app, req.params.event_id).then(importer.loadMembers).then(importer.addMembers).then((meeting) => {
+    res.render('search', {
+      event: meeting
     });
-
-    res.render('search');
-  });
+  }).catch((error) => {
+    res.send(error);
+  })
 });
 
 module.exports = router;
