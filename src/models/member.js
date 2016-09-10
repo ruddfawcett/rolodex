@@ -1,27 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// TODO Edit profile if you've already attended a meetup.
-
 const MemberSchema = new Schema({
   name: { type: String, required: true },
   meetup_id: { type: String, required: true, unique: true },
   avatar: { type: String },
   // TODO Ask if they have been to a meetup if this is 0.
   // Only for the first few meetups.
-  complete_profile: { type: Boolean, required: false, default: false },
+  complete_profile: { type: Boolean, default: false },
   profile: {
-    meetups_attended: { type: Number, required: false, default: 0 },
-    teacher: { type: Boolean, required: false },
-    affiliation: { type: String, required: false},
-    role: { type: String, required: false},
-    borough: { type: String, required: false, enum: [
+    meetups_attended: { type: Number, default: 0 },
+    teacher: { type: Boolean },
+    affiliation: { type: String},
+    role: { type: String},
+    borough: { type: String, enum: [
       'MANHATTAN', 'QUEENS', 'STATENISLAND', 'THEBRONX', 'BROOKLYN', 'OUTSIDE',
     ]},
-    grade_level: { type: String, required: false, enum: [
+    grade_level: { type: String, enum: [
       'ELEMENTARY', 'MIDDLE', 'HIGH', 'POSTHIGH'
     ]},
-    subjects_taught: { type:[String], enum:[
+    subjects_taught: { type:[String], enum: [
       'TEST'
     ]}
   },

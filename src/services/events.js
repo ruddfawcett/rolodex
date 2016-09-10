@@ -1,4 +1,5 @@
 const service = require('feathers-mongoose');
+const hooks = require('feathers-hooks');
 const Event = require('../models/event');
 
 module.exports = function() {
@@ -12,15 +13,14 @@ module.exports = function() {
     }
   };
 
-  // Initialize our service with any options it requires
   app.use('/api/events', service(options));
 
-  // // Get our initialize service to that we can bind hooks
-  // const eventsService = app.service('/events');
-  //
-  // // Set up our before hooks
-  // eventsService.before(hooks.before);
-  //
-  // // Set up our after hooks
-  // eventsService.after(hooks.after);
+  const eventsService = app.service('/api/events');
+  eventsService.after({
+    get: [
+      hooks.populate('no', {
+        service: '/api/members'
+      })
+    ]
+  });
 };
