@@ -1,0 +1,34 @@
+extends ./includes/layout.jade
+
+block vars
+  - var path='Profile'
+
+block content
+  main
+    div.profile
+      - if (member.complete_profile)
+        - if (member.teacher)
+          h2 asdf
+        - else
+          h2 #{subjects}
+      - else
+        div.head
+          h1 Hi, #[span(class='name') #{member.name}]!
+          h3 Looks like you're new. Please complete your profile.
+        div.form
+          include ./includes/form.jade
+          include ./includes/teacher-form.jade
+
+  include ./includes/footer.jade
+
+block scripts
+  script(type='text/javascript').
+    var event_id = !{JSON.stringify(event_id)};
+    var member_id = !{JSON.stringify(member_id)};
+  script(type='text/javascript', src='/static/js/events.js')
+  script(type='text/javascript').
+    $('select[name="teacher"]').on('change', function() {
+      var isTeacher = $(this).val() === 'true' ? true : false;
+      $('.teacher').toggle(isTeacher);
+    });
+  script(type='text/javascript', src='/static/js/form.js')
