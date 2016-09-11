@@ -29,5 +29,5 @@ $('input.searchbar').keyup(function() {
 $('body').on('click', '.results .person', function() {
   var id = $(this).data('member-id');
   var name = $(this).data('member-name').replace(' ', '-');
-  window.location = `../../members/${id}/${name}`;
+  window.location = `/events/${event_id}/${id}`;
 });

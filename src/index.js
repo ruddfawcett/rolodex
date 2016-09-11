@@ -5,7 +5,7 @@ const server = app.listen(port);
 const routes = require('./routes/');
 
 app.use('/events', routes.events);
-app.use('/members', routes.members);
+app.use('/events', routes.members);
 
 app.use('/', (req, res) => {
   res.redirect('/events');

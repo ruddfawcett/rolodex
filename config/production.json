@@ -1,7 +1,8 @@
 {
   "host": "meetup-app.feathersjs.com",
   "port": 80,
-  "mongodb": "DATABASE_URL",
+  "mongodb": "MONGOLAB",
   "public": "../public/",
-  "MEETUP_API_KEY": "69940413b4c713f2a45328635e636"
+  "MEETUP_API_KEY": "MEETUP_API_KEY",
+  "MEETUP_GROUP_URL": "MEETUP_GROUP_URL"
 }
