@@ -1,3 +1,4 @@
+'use strict';
 const hooks = require('feathers-hooks');
 const service = require('feathers-mongoose');
 const Member = require('../models/member');
