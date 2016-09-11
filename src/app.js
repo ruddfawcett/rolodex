@@ -15,7 +15,7 @@ app.configure(configuration(path.join(__dirname, '..')));
 app.configure(hooks());
 
 app.set('views', path.join(__dirname, '../views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

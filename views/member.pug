@@ -1,4 +1,4 @@
-extends ./includes/layout.jade
+extends ./includes/layout.pug
 
 block vars
   - var path='Profile'
@@ -16,10 +16,10 @@ block content
           h1 Hi, #[span(class='name') #{member.name}]!
           h3 Looks like you're new. Please complete your profile.
         div.form
-          include ./includes/form.jade
-          include ./includes/teacher-form.jade
+          include ./includes/form.pug
+          include ./includes/teacher-form.pug
 
-  include ./includes/footer.jade
+  include ./includes/footer.pug
 
 block scripts
   script(type='text/javascript').

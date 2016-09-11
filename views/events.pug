@@ -1,4 +1,4 @@
-extends ./includes/layout.jade
+extends ./includes/layout.pug
 
 block vars
   - var path='Events'
@@ -16,7 +16,7 @@ block content
         if first
           section.event.latest(data-event_id='#{event.id}', data-event_name='#{event.name}', data-event_date='#{event.time}')
             .container
-              h4 Next Event 
+              h4 Next Event
               h1 #{event.name}
             - first = false
         else
@@ -27,7 +27,7 @@ block content
               p Maybe: #{event.maybe_rsvp_count}
               p Coming: #{event.yes_rsvp_count}
 
-  include ./includes/footer.jade
+  include ./includes/footer.pug
 
 block scripts
   script(type='text/javascript', src='/static/js/events.js')
