@@ -86,7 +86,7 @@ var self = module.exports = {
     var P = Q.defer();
 
     async.each(attendees, (member, callback) => {
-      events.update(data.meeting._id, {$addToSet: {'attendees.no': member._id}}).then((result) => {
+      events.update(data.meeting._id, {$addToSet: {'attendees.all': member._id}}).then((result) => {
         if (result) {
           callback();
         }
