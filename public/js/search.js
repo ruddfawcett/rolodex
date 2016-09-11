@@ -1,4 +1,4 @@
-var socket = io('http://localhost:8080');
+var socket = io('http://rolodex-csnyc.herokuapp.com');
 var app = feathers().configure(feathers.socketio(socket));
 var members = app.service('/api/members');
 

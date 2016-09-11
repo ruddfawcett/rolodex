@@ -1,5 +1,5 @@
 {
-  "host": "meetup-app.feathersjs.com",
+  "host": "rolodex-csnyc.herokuapp.com",
   "port": 80,
   "mongodb": "MONGOLAB",
   "public": "../public/",
