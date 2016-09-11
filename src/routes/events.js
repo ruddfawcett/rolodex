@@ -15,9 +15,8 @@ router.get('/', (req, res) => {
   }
 
   meetup.getEvents(parameters, (error, response) => {
-    if (error) res.render('error');
-
-    res.render('events', {
+    if (error) next(error);
+    return res.render('events', {
       events: response.results.slice(0, 15)
     });
   });
@@ -26,11 +25,11 @@ router.get('/', (req, res) => {
 
 router.get('/:event_id', (req, res) => {
   importer.findEvent(app, req.params.event_id).then(importer.loadMembers).then(importer.addMembers).then((meeting) => {
-    res.render('search', {
+    return res.render('search', {
       event: meeting
     });
   }).catch((error) => {
-    res.send(error);
+    return next(error);
   })
 });
 
