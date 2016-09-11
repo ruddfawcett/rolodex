@@ -5,23 +5,29 @@ const MemberSchema = new Schema({
   name: { type: String, required: true },
   meetup_id: { type: String, required: true, unique: true },
   avatar: { type: String },
-  // TODO Ask if they have been to a meetup if this is 0.
-  // Only for the first few meetups.
   complete_profile: { type: Boolean, default: false },
   profile: {
-    meetups_attended: { type: Number, default: 0 },
-    teacher: { type: Boolean },
-    affiliation: { type: String},
-    role: { type: String},
+    affiliation: { type: String },
+    role: { type: String },
     borough: { type: String, enum: [
       'MANHATTAN', 'QUEENS', 'STATENISLAND', 'THEBRONX', 'BROOKLYN', 'OUTSIDE',
     ]},
-    grade_level: { type: String, enum: [
-      'ELEMENTARY', 'MIDDLE', 'HIGH', 'POSTHIGH'
-    ]},
-    subjects_taught: { type:[String], enum: [
-      'TEST'
-    ]}
+    teacher: { type: Boolean, default: false },
+    subjects_taught: {
+      english: { type: Boolean },
+      mathematics: { type: Boolean },
+      science: { type: Boolean },
+      social_studies: { type: Boolean },
+      foriegn_language: { type: Boolean },
+      art: { type: Boolean },
+      computer_science: { type: Boolean }
+    },
+    grade_levels: {
+      elementary: { type: Boolean, default: false },
+      middle_school: { type: Boolean, default: false },
+      high_school: { type: Boolean, default: false },
+      post_high: { type: Boolean, default: false }
+    }
   },
   created_at: { type: Date, 'default': Date.now },
   updated_at: { type: Date, 'default': Date.now }
@@ -31,14 +37,6 @@ MemberSchema.pre('save', function(next) {
   this.updated_at = new Date();
   next();
 });
-
-// MemberSchema.virtual('profile.grade_level').get(function () {
-//   switch (enum)
-// })
-
-// MemberSchema.virtual('isTeacher').get(function () {
-//   return this.profile.profession == "";
-// })
 
 const MemberModel = mongoose.model('Member', MemberSchema);
 
