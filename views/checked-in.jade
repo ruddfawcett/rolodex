@@ -1,0 +1,18 @@
+extends ./includes/layout.jade
+
+block vars
+  - var path='Events'
+
+block content
+  main
+    div.checkin
+      h1 Thanks for checking in!
+
+  include ./includes/footer.jade
+
+block scripts
+  script(type='text/javascript').
+    var event = !{JSON.stringify(event)};
+    window.setTimeout(function() {
+      window.location.href = '/events/' + event.meetup_id;
+    }, 2000);

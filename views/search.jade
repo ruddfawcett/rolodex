@@ -13,3 +13,6 @@ block content
 
 block scripts
   script(type='text/javascript', src='/static/js/search.js')
+  - if (event)
+  script(type='text/javascript').
+    var event_id = !{JSON.stringify(event._id)};

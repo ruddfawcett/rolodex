@@ -1,0 +1,21 @@
+div.general
+  h3 Affiliation (School/Organization)
+  input(type='text', name='affiliation')
+  h3 Role
+  input(type='text', name='role')
+  h3 Borough
+  select(name='borough')
+    option(value='' disabled selected) Select a borough
+    option(value='MANHATTAN') Manhattan
+    option(value='QUEENS') Queens
+    option(value='STATENISLAND') Staten Island
+    option(value='THEBRONX') The Bronx
+    option(value='BROOKLYN') Brooklyn
+    option(value='OUTSIDE') Outside NYC
+  h3 Are you a teacher?
+  select(name='teacher')
+    option(value='false') No
+    option(value='true') Yes
+
+  input(type='submit', name='checkin', value='Save')
+  p.message
