@@ -9,13 +9,13 @@ const importer = require('../modules/import');
 const members = app.service('/api/members');
 const events = app.service('/api/events');
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   var parameters = {
     group_urlname: app.get('MEETUP_GROUP_URL')
   }
 
   meetup.getEvents(parameters, (error, response) => {
-    if (error) next(error);
+    if (error) return next(error);
     return res.render('events', {
       events: response.results.slice(0, 15)
     });
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/:event_id', (req, res) => {
+router.get('/:event_id', (req, res, next) => {
   importer.findEvent(app, req.params.event_id).then(importer.loadMembers).then(importer.addMembers).then((meeting) => {
     return res.render('search', {
       event: meeting
