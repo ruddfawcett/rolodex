@@ -13,9 +13,9 @@ $('.event').on('click', function() {
     date: new Date(event_date)
   };
 
-  events.find({query:{ meetup_id: event_id }}).then((result) => {
+  events.find({query:{ meetup_id: event_id }}).then(function(result) {
     if (!result.data.length) {
-      return events.create(Event).then((theEvent) => {
+      return events.create(Event).then(function(theEvent) {
         if (theEvent) {
           window.location = `events/${event_id}`;
         }
@@ -24,7 +24,7 @@ $('.event').on('click', function() {
     else {
       window.location = `events/${event_id}`; // /${event_name.replace(/ /g, '-')}`;
     }
-  }).catch(error => {
+  }).catch(function(error) {
     console.log(error);
   });
 });

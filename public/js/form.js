@@ -78,15 +78,14 @@ $('input[name="checkin"]').on('click', function() {
     }
   }
 
-  members.update(member_id, Teacher).then((result) => {
+  members.update(member_id, Teacher).then(function(result) {
     if (result) {
-      console.log('asdf');
       window.location.reload();
     }
     else {
       console.log('error');
     }
-  }).catch((error) => {
+  }).catch(function(error) {
     console.log('error');
     console.log(error);
   });
