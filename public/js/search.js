@@ -10,7 +10,7 @@ $('input.searchbar').keyup(function() {
 
   var str = $(this).val();
   $('.results').empty();
-  members.find({query: {name: { $search: str}}}).then(function(results) => {
+  members.find({query: {name: { $search: str}}}).then(function(results) {
     if (results.data.length != 0) {
       $.each(results.data, function(index, result) {
         var item = $('<div class=\'person\'>').attr('data-member-id', result._id).attr('data-member-name', result.name);
