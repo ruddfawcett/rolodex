@@ -21,7 +21,7 @@ $('input.searchbar').keyup(function() {
         $('.results').append(item);
       });
     }
-  }).catch(function(error) => {
+  }).catch(function(error) {
     console.log(error);
   });
 });
