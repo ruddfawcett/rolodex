@@ -1,4 +1,4 @@
-var socket = io('http://rolodex-csnyc.herokuapp.com');
+var socket = io('localhost:8080');
 var app = feathers().configure(feathers.socketio(socket));
 var events = app.service('/api/events');
 var members = app.service('/api/members');
@@ -7,9 +7,11 @@ $('input[name="checkin"]').on('click', function() {
   var affiliation = $('input[name="affiliation"]').val();
   var role = $('input[name="role"]').val();
   var borough = $('select[name="borough"]').val();
+  var first = $('input[name="first"]').val();
+  var last = $('input[name="last"]').val();
   var teacher = $('select[name="teacher"]').val() === 'true' ? true : false;
 
-  if (affiliation.length == 0 || role.length == 0 || borough.length == 0) {
+  if (affiliation.length == 0 || role.length == 0 || borough.length == 0 || first.length == 0 || last.length == 0) {
     $('.message').text('Please complete your profile!').fadeIn().delay(2000).fadeOut();
     return;
   }
@@ -17,6 +19,7 @@ $('input[name="checkin"]').on('click', function() {
   var Teacher = {
     $set: {
       complete_profile: true,
+      name: first + ' ' + last,
       profile: {
         affiliation: affiliation,
         role: role,
@@ -51,7 +54,7 @@ $('input[name="checkin"]').on('click', function() {
       subjects.computer_science = true;
     }
 
-    var grades = [];
+    var grades = {};
     var raw_grades = $('select[name="grades"]').val();
     if ($.inArray('ELEMENTARY', raw_grades) > -1) {
       grades.elementary = true;

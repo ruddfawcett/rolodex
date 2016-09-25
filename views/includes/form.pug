@@ -1,4 +1,11 @@
 div.general
+  - var full = member.name.split(' ');
+  - var first = full[0];
+  - var last = full.length > 0 ? full[full.length - 1] : '';
+  h3 First Name
+  input(type='text', name='first', value=first)
+  h3 Last Name
+  input(type='text', name='last', value=last)
   h3 Affiliation (School/Organization)
   input(type='text', name='affiliation')
   h3 Role
