@@ -22,16 +22,10 @@ block content
           section.event(data-event_id=event.id, data-event_name=event.name, data-event_date=event.time)
             .container
               h1 #{event.name}
-              p Waitlist: #{event.waitlist_count}
-              p Maybe: #{event.maybe_rsvp_count}
-              p Coming: #{event.yes_rsvp_count}
         else
           section.event(data-event_id=event.id, data-event_name=event.name, data-event_date=event.time)
             .container
               h1 #{event.name}
-              p Waitlist: #{event.waitlist_count}
-              p Maybe: #{event.maybe_rsvp_count}
-              p Coming: #{event.yes_rsvp_count}
 
   include ./includes/footer.pug
 
