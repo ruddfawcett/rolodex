@@ -10,6 +10,7 @@ $('input[name="checkin"]').on('click', function() {
   var borough = $('select[name="borough"]').val();
   var first = $('input[name="first"]').val();
   var last = $('input[name="last"]').val();
+  var email = $('input[name="email"]').val();
   var teacher = $('select[name="teacher"]').val() === 'true' ? true : false;
 
   if (email.length == 0 || affiliation.length == 0 || role.length == 0 || borough.length == 0 || first.length == 0 || last.length == 0) {
@@ -20,7 +21,8 @@ $('input[name="checkin"]').on('click', function() {
   var Teacher = {
     $set: {
       complete_profile: true,
-      name: first + ' ' + last
+      name: first + ' ' + last,
+      email: email
     }
   };
 
