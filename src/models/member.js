@@ -3,11 +3,7 @@ const Schema = mongoose.Schema;
 
 const MemberSchema = new Schema({
   name: { type: String, required: true },
-<<<<<<< HEAD
   email: { type: String },
-=======
-  email: { type: String, required: true },
->>>>>>> master
   meetup_id: { type: String, required: true, unique: true },
   avatar: { type: String },
   complete_profile: { type: Boolean, default: false },
@@ -15,11 +11,7 @@ const MemberSchema = new Schema({
     affiliation: { type: String },
     role: { type: String },
     borough: { type: String, enum: [
-<<<<<<< HEAD
       'MANHATTAN', 'QUEENS', 'STATENISLAND', 'THEBRONX', 'BROOKLYN', 'OUTSIDE', 'CITYWIDE'
-=======
-      'MANHATTAN', 'QUEENS', 'STATENISLAND', 'THEBRONX', 'BROOKLYN', 'CITYWIDE', 'OUTSIDE'
->>>>>>> master
     ]},
     teacher: { type: Boolean, default: false },
     subjects_taught: {
