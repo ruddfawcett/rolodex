@@ -5,6 +5,7 @@ var members = app.service('/api/members');
 
 $('input[name="checkin"]').on('click', function() {
   var affiliation = $('input[name="affiliation"]').val();
+  var email = $('input[name="email"]').val();
   var role = $('input[name="role"]').val();
   var borough = $('select[name="borough"]').val();
   var first = $('input[name="first"]').val();
