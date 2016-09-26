@@ -11,7 +11,7 @@ const MemberSchema = new Schema({
     affiliation: { type: String },
     role: { type: String },
     borough: { type: String, enum: [
-      'MANHATTAN', 'QUEENS', 'STATENISLAND', 'THEBRONX', 'BROOKLYN', 'CITYWIDE', 'OUTSIDE',
+      'MANHATTAN', 'QUEENS', 'STATENISLAND', 'THEBRONX', 'BROOKLYN', 'CITYWIDE', 'OUTSIDE'
     ]},
     teacher: { type: Boolean, default: false },
     subjects_taught: {
