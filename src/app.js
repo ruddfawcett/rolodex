@@ -31,7 +31,11 @@ app.use(
 );
 
 app.configure(rest());
-app.configure(socketio());
+app.configure(socketio((io) => {
+  io.on('connection', function(socket) {
+    console.log('A user joined.');
+  });
+}));
 app.configure(services);
 app.use('/static', feathers.static(path.join(__dirname, '../public')));
 app.use(handler());

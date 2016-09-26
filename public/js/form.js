@@ -1,4 +1,4 @@
-var socket = io('localhost:8080');
+var socket = io('http://rolodex-csnyc.herokuapp.com');
 var app = feathers().configure(feathers.socketio(socket));
 var events = app.service('/api/events');
 var members = app.service('/api/members');
@@ -19,12 +19,7 @@ $('input[name="checkin"]').on('click', function() {
   var Teacher = {
     $set: {
       complete_profile: true,
-      name: first + ' ' + last,
-      profile: {
-        affiliation: affiliation,
-        role: role,
-        borough: borough
-      }
+      name: first + ' ' + last
     }
   };
 
@@ -79,6 +74,12 @@ $('input[name="checkin"]').on('click', function() {
       $('.message').text('Please choose subjects or grades!').fadeIn().delay(2000).fadeOut();
       return;
     }
+  }
+
+  Teacher.$set.profile = {
+    affiliation: affiliation,
+    role: role,
+    borough: borough
   }
 
   members.update(member_id, Teacher).then(function(result) {

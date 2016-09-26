@@ -14,8 +14,15 @@ $('input.searchbar').keyup(function() {
     if (results.data.length != 0) {
       $.each(results.data, function(index, result) {
         var item = $('<div class=\'person\'>').attr('data-member-id', result._id).attr('data-member-name', result.name);
+        var avatar;
+        if (typeof result.avatar === 'undefined') {
+          avatar = `https://api.adorable.io/avatars/285/${result.name.replace(' ', '')}.png`;
+        }
+        else {
+          avatar = result.avatar;
+        }
 
-        item.append($('<img>').css('background-image',`url(${result.avatar})`));
+        item.append($('<img>').css('background-image',`url(${avatar})`));
         item.append($('<h1>').append(result.name));
 
         $('.results').append(item);

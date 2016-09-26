@@ -4,6 +4,6 @@
   "MEETUP_PASSCODE": "test",
   "mongodb": "mongodb://localhost:27017/meetup",
   "public": "../public/",
-  "MEETUP_API_KEY": "69940413b4c713f2a45328635e636",
+  "MEETUP_API_KEY": "4a3556b6638383b4832a4b19243d7a",
   "MEETUP_GROUP_URL": "hackerhours"
 }

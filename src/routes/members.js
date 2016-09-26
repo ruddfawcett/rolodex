@@ -16,8 +16,13 @@ router.get('/:event_id/:member_id', (req, res) => {
         }).then((result) => {
           if (!result) { return next(new Error('Couldn\'t update.')); }
           else {
-            return res.render('checked-in', {
+            app.io.sockets.emit('checkin', {
+              member: member,
               event: result
+            });
+            return res.render('checked-in', {
+              event: result,
+              member: member
             });
           }
         }).catch((error) => {
